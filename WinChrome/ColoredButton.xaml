@@ -1,0 +1,32 @@
+﻿<Button x:Class="WinChrome.ColoredButton"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+        xmlns:WinChrome="clr-namespace:WinChrome"
+             mc:Ignorable="d" 
+             d:DesignHeight="16" d:DesignWidth="16" >
+    <Button.Style>
+        <Style  TargetType="Button">
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="Button">
+                        <Border x:Name="btnBd" Background="{TemplateBinding Background}" Padding="3">
+                            <ContentPresenter/>
+                        </Border>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True" SourceName="btnBd">
+                                <Setter Property="Background" TargetName="btnBd" Value="{Binding MouseOverBackground,RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type WinChrome:ColoredButton}}}"/>
+                                <Setter Property="Foreground"  TargetName="btnBd" Value="{Binding MouseOverForeground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type WinChrome:ColoredButton}}}"/>
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="True">
+                                <Setter Property="Background" TargetName="btnBd" Value="{Binding PressedBackground, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type WinChrome:ColoredButton}}}"/>
+                                <Setter Property="Foreground"  TargetName="btnBd" Value="{Binding PressedForeground,RelativeSource={RelativeSource FindAncestor,AncestorType={x:Type WinChrome:ColoredButton}}}"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Button.Style>
+</Button>

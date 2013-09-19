@@ -1,0 +1,26 @@
+﻿<UserControl x:Class="WinChrome.View.Navigation"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewModel="clr-namespace:WinChrome.ViewModel"
+             xmlns:view="clr-namespace:WinChrome.View" xmlns:WinChrome="clr-namespace:WinChrome"
+             xmlns:Convertors="clr-namespace:WinChrome.Convertors" xmlns:Win7Demo="clr-namespace:WinChrome.Win7Demo"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="150"  d:DataContext="{d:DesignInstance Type=viewModel:RootViewModel}"
+             MinWidth="150" >
+
+    <ScrollViewer HorizontalScrollBarVisibility="Disabled" Padding="12,0" 
+                  VerticalScrollBarVisibility="Auto" >
+        <StackPanel>
+            <Button 
+                Margin="0,12,0,0" Style="{StaticResource LinkNavigatorButtonStyle}" 
+                Content="Home" 
+                Command="{Binding 
+                    RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Win7Demo:MainWindow}, AncestorLevel=1}, 
+                    Path=GoHomeCommand}" />                   
+        </StackPanel>
+    </ScrollViewer>
+
+
+</UserControl>

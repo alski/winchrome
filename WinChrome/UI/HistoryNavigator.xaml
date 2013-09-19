@@ -1,0 +1,32 @@
+<UserControl 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:Convertors="clr-namespace:WinChrome.Convertors" 
+    Height="32" Width="80" Margin="0,-3,0,-3"    
+    x:Class="WinChrome.UI.HistoryNavigator"
+    xmlns:UI="clr-namespace:WinChrome.UI">
+    
+    <!--Style="{StaticResource ResourceKey=HistoryNavigatorWin7}"-->
+    <UserControl.Resources>
+        <ResourceDictionary Source="/WinChrome;component/UI/HistoryNavigatorStyles/BaseResourceDictionary.xaml"/>
+    </UserControl.Resources>
+
+    <!--- Really simple view should always be styled-over-->
+    <Canvas SnapsToDevicePixels="False">
+        <Button x:Name="PART_BackButton" Canvas.Left="2" Canvas.Top="3" Content="&lt;-"/>
+        <Button x:Name="PART_ForwardButton" Canvas.Left="32" Canvas.Top="3" Content="-&gt;"/>
+
+        <ToggleButton x:Name="PART_DropButton" Canvas.Left="60" Canvas.Top="3" Content="v"
+                      Click="PART_DropButton_Click">
+            <ToggleButton.ContextMenu>
+                <ContextMenu x:Name="PART_ContextMenu"    
+                             ItemTemplate="{StaticResource journalMenuItemTemplate}" 
+                            ItemContainerStyle="{StaticResource journalMenuItemContainerStyle}" 
+                             Closed="PART_ContextMenu_Closed">
+                </ContextMenu>
+            </ToggleButton.ContextMenu>
+        </ToggleButton>
+    </Canvas>
+
+
+</UserControl>

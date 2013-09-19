@@ -1,0 +1,112 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+	xmlns:Extensions="clr-namespace:WinChrome.Extensions" 
+    xmlns:Convertors="clr-namespace:WinChrome.Convertors"
+    xmlns:UI="clr-namespace:WinChrome.UI"
+    >
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="/WinChrome;component/UI/HistoryNavigatorStyles/BaseResourceDictionary.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+
+    <!--Style-->
+    <Style TargetType="Button" x:Key="BackwardsArrowButtonModern">
+        <Setter Property="SnapsToDevicePixels" Value="true"/>
+        <Setter Property="OverridesDefaultStyle" Value="true"/>
+        <Setter Property="Command" Value="NavigationCommands.BrowseBack"/>
+        <Setter Property="Focusable" Value="false"/>
+        <Setter Property="MinHeight" Value="40"/>
+        <Setter Property="MinWidth" Value="40"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Grid Margin="0,-15,0,0" >
+                        <Ellipse x:Name="Border"
+                            HorizontalAlignment="Center" VerticalAlignment="Center"              
+                            Width="40" Height="40"
+                                 StrokeThickness="3"
+                            Stroke="{TemplateBinding Foreground}" 
+                            Fill="Transparent" />
+                        <Path x:Name="Arrow"      
+                              Width="20" Height="20" Stretch="Uniform" 
+                              Data="M 0.25,0.475
+                                    L 0.25, 0.525
+                                    L 0.45,0.75 L 0.575,0.75
+                                    L 0.425,0.565 0.75,0.565
+                                    L 0.75,0.435 L 0.425,0.435
+                                    L 0.575,0.25 0.45,0.25
+                                    L 0.25,0.475"
+    	                    Fill="{TemplateBinding Foreground}" />
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="Border" Property="Fill" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            <Setter TargetName="Border" Property="Stroke" Value="{DynamicResource {x:Static SystemColors.HighlightBrushKey}}" />
+                            <Setter TargetName="Arrow" Property="Fill" Value="White" />
+                        </Trigger>
+                        <Trigger Property="Command" Value="{x:Static NavigationCommands.BrowseForward}">
+                            <Setter TargetName="Border" Property="Fill" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+                            <Setter TargetName="Border" Property="Stroke" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+                            <Setter TargetName="Arrow" Property="Stroke" Value="White" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter TargetName="Border" Property="Fill" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+                            <Setter TargetName="Border" Property="Stroke" Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" />
+                            <Setter TargetName="Arrow" Property="Stroke" Value="White" />
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter TargetName="Border" Property="Fill" Value="Transparent" />
+                            <Setter TargetName="Border" Property="Stroke">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}" Opacity="0.25"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Border" Property="Stroke">
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}" Opacity="0.25"/>
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="Arrow" Property="Fill" >
+                                <Setter.Value>
+                                    <SolidColorBrush Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}" Opacity="0.25"/>
+                                </Setter.Value>
+                            </Setter>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+
+    <Style x:Key="HistoryNavigatorModern" TargetType="UI:HistoryNavigator">
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate>
+                    <!--<Canvas SnapsToDevicePixels="False">-->
+                        <Button x:Name="PART_BackButton" Canvas.Left="2" Canvas.Top="3" Style="{StaticResource BackwardsArrowButtonModern}" />
+                        <!--<Button x:Name="PART_ForwardButton" Canvas.Left="32" Canvas.Top="3" Style="{StaticResource ForwardsArrowButton}" />
+                        <ToggleButton x:Name="PART_DropButton" Canvas.Left="60" Canvas.Top="3" Style="{StaticResource DropArrow}"  >
+                            --><!--Click="PART_DropButton_Click"--><!--
+                            <ToggleButton.ContextMenu>
+                                <ContextMenu x:Name="PART_ContextMenu"    
+                                     ItemTemplate="{StaticResource journalMenuItemTemplate}" 
+                                    ItemContainerStyle="{StaticResource journalMenuItemContainerStyle}" >
+                                </ContextMenu>
+                            </ToggleButton.ContextMenu>
+                        </ToggleButton>-->
+                    <!--</Canvas>-->
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+</ResourceDictionary>

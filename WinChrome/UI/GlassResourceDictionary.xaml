@@ -1,0 +1,496 @@
+﻿<ResourceDictionary
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+      xmlns:Microsoft_Windows_Themes="clr-namespace:Microsoft.Windows.Themes;assembly=PresentationFramework.Aero"
+	xmlns:Extensions="clr-namespace:WinChrome.Extensions" xmlns:Convertors="clr-namespace:WinChrome.Convertors">
+
+    <Convertors:VisibleIfNotNullConverter x:Key="visibleIfNotNullConverter"/>
+
+    <Color x:Key="SelectionHoverColourLightLight">#D3EDFB</Color>
+    <Color x:Key="SelectionHoverColourLight">#C6E9FA</Color>
+    <Color x:Key="SelectionHoverColourDark">#9CD8F7</Color>
+    <Color x:Key="SelectionHoverColourDarkDark">#89D0F5</Color>
+    <Color x:Key="SelectionPressedColourLightLight">#C2E4F6</Color>
+    <Color x:Key="SelectionPressedColourLight">#C2E4F6</Color>
+    <Color x:Key="SelectionPressedColourDark">#A9D9F2</Color>
+    <Color x:Key="SelectionPressedColourDarkDark">#90CBEB</Color>
+    <Color x:Key="ControlPanelTitleColor">#003399</Color>
+
+    <SolidColorBrush x:Key="LinkTitleColour">#006e12</SolidColorBrush>
+    <SolidColorBrush x:Key="LinkTitleColourHover">#00ae1d</SolidColorBrush>
+    <SolidColorBrush x:Key="LinkButtonColour">#0066cc</SolidColorBrush>
+    <SolidColorBrush x:Key="LinkButtonHoverColour">#3399ff</SolidColorBrush>
+    <SolidColorBrush x:Key="LinkNavigationButtonColour">#151C55</SolidColorBrush>
+    <SolidColorBrush x:Key="LinkOnDarkNavigationButtonColour">White</SolidColorBrush>
+    <SolidColorBrush x:Key="LinkNavigationButtonHoverColour">#074AE5</SolidColorBrush>
+
+    <Color x:Key="NavigationDarkColor">#ffE3ECF9</Color>
+    <Color x:Key="NavigationTransparentColor">#00E3ECF9</Color>
+    <Color x:Key="NavigationLightColor">#ffEFF7FF</Color>
+    <Color x:Key="InactiveTextBoxBackgroundDark">#b0ffffff</Color>
+    <Color x:Key="InactiveTextBoxBackgroundLight">#e0ffffff</Color>
+
+    <LinearGradientBrush x:Key="InactiveTextBoxBackgroundBrush" EndPoint="0,1">
+        <GradientStop Color="{StaticResource InactiveTextBoxBackgroundLight}" Offset="0" />
+        <GradientStop Color="{StaticResource InactiveTextBoxBackgroundDark}" Offset="0.125" />
+        <GradientStop Color="{StaticResource InactiveTextBoxBackgroundDark}" Offset="0.875" />
+        <GradientStop Color="{StaticResource InactiveTextBoxBackgroundLight}" Offset="1" />
+    </LinearGradientBrush>
+    <SolidColorBrush x:Key="ControlPanelTitleBrush" Color="{StaticResource ResourceKey=ControlPanelTitleColor}"/>
+
+    <Style x:Key="ControlPanelTitle" TargetType="TextBlock">
+        <Setter Property="FontSize" Value="12pt"/>
+        <Setter Property="Foreground" Value="{StaticResource ControlPanelTitleBrush}" />
+    </Style>
+    <Style x:Key="ControlPanelTitleLabel" TargetType="Label">
+        <Setter Property="FontSize" Value="12pt"/>
+        <Setter Property="Foreground" Value="{StaticResource ControlPanelTitleBrush}" />
+    </Style>
+
+    <Style x:Key="ControlPanelSectionTitle" TargetType="TextBlock">
+        <Setter Property="Foreground" Value="{StaticResource ControlPanelTitleBrush}" />
+    </Style>
+
+
+    <LinearGradientBrush x:Key="SelectionHoverBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{StaticResource SelectionHoverColourLightLight}" Offset="0"/>
+        <GradientStop Color="{StaticResource SelectionHoverColourLight}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource SelectionHoverColourDark}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource SelectionHoverColourDarkDark}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="SelectionPressedBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{StaticResource SelectionPressedColourLightLight}" Offset="0"/>
+        <GradientStop Color="{StaticResource SelectionPressedColourLight}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource SelectionPressedColourDark}" Offset="0.5"/>
+        <GradientStop Color="{StaticResource SelectionPressedColourDarkDark}" Offset="1"/>
+    </LinearGradientBrush>
+
+
+
+
+    <LinearGradientBrush x:Key="NavigationOverlayBrush" StartPoint="0,0.55" EndPoint="1,0.45">
+        <GradientStop Color="{StaticResource NavigationTransparentColor}" Offset="0"/>
+        <GradientStop Color="{StaticResource NavigationDarkColor}" Offset="0.1"/>
+        <GradientStop Color="{StaticResource NavigationTransparentColor}" Offset="0.15"/>
+        <GradientStop Color="{StaticResource NavigationDarkColor}" Offset="0.225"/>
+        <GradientStop Color="{StaticResource NavigationDarkColor}" Offset="0.375"/>
+        <GradientStop Color="{StaticResource NavigationTransparentColor}" Offset=".425"/>
+        <GradientStop Color="{StaticResource NavigationTransparentColor}" Offset=".575"/>
+        <GradientStop Color="{StaticResource NavigationDarkColor}" Offset=".625"/>
+        <GradientStop Color="{StaticResource NavigationDarkColor}" Offset="0.775"/>
+        <GradientStop Color="{StaticResource NavigationTransparentColor}" Offset="0.825"/>
+        <GradientStop Color="{StaticResource NavigationTransparentColor}" Offset="0.925"/>
+        <GradientStop Color="{StaticResource NavigationDarkColor}" Offset="0.95"/>
+        <GradientStop Color="{StaticResource NavigationDarkColor}" Offset="0.975"/>
+        <GradientStop Color="{StaticResource NavigationTransparentColor}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <LinearGradientBrush x:Key="NavigationBackgroundBrush"
+                         StartPoint="0,0.4" EndPoint="1,0.6" >
+        <GradientStop Color="{DynamicResource NavigationLightColor}" Offset="0.25" />
+        <GradientStop Color="{DynamicResource NavigationDarkColor}" Offset="0.75" />
+    </LinearGradientBrush>
+
+    <Style x:Key="LinkButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <TextBlock x:Name="tb" Background="{x:Null}" Cursor="Hand" TextWrapping="WrapWithOverflow" 
+                                   Foreground="{DynamicResource LinkButtonColour}" >
+                              <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="{TemplateBinding Focusable}"/>
+                    </TextBlock>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true" >
+                            <Setter TargetName="tb" Property="Foreground" Value="{DynamicResource LinkButtonHoverColour}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false" >
+                            <Setter TargetName="tb" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LinkNavigatorButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <TextBlock x:Name="tb" Background="{x:Null}" Cursor="Hand" TextWrapping="WrapWithOverflow" 
+                                   Foreground="{DynamicResource LinkNavigationButtonColour}" >
+                              <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="{TemplateBinding Focusable}"/>
+                    </TextBlock>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true" >
+                            <Setter TargetName="tb" Property="Foreground" Value="{DynamicResource LinkNavigationButtonHoverColour}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false" >
+                            <Setter TargetName="tb" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LinkOnDarkNavigatorButtonStyle" TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <TextBlock x:Name="tb" Background="{x:Null}" Cursor="Hand" TextWrapping="WrapWithOverflow" 
+                                   Foreground="{DynamicResource LinkOnDarkNavigationButtonColour}" >
+                              <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="{TemplateBinding Focusable}"/>
+                    </TextBlock>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true" >
+                            <Setter TargetName="tb" Property="Foreground" Value="{DynamicResource LinkNavigationButtonHoverColour}"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="false" >
+                            <Setter TargetName="tb" Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <Style x:Key="LinkButtonTitleStyle" TargetType="{x:Type Button}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <TextBlock x:Name="tb" Background="{x:Null}" Cursor="Hand" TextWrapping="Wrap" FontSize="12pt"
+                                   Foreground="{DynamicResource LinkTitleColour}">
+                              <ContentPresenter VerticalAlignment="Center" RecognizesAccessKey="true"/>
+                    </TextBlock>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="true" >
+                            <!--<Setter Property="Cursor" Value="Hand" />-->
+                            <Setter TargetName="tb" Property="Foreground" Value="{DynamicResource LinkTitleColourHover}"/>
+                            <Setter TargetName="tb" Property="TextDecorations" Value="Baseline" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="LinkTextBlockTitleStyle" TargetType="{x:Type TextBlock}">
+        <Setter Property="SnapsToDevicePixels" Value="true" />
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="TextWrapping" Value="Wrap"/>
+        <Setter Property="FontSize" Value="12pt"/>
+        <Setter Property="Foreground" Value="{DynamicResource LinkTitleColour}"/>
+    </Style>
+
+    <Style x:Key="LinkSpanTitleStyle" TargetType="{x:Type Span}">
+        <Setter Property="OverridesDefaultStyle" Value="true" />
+        <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Foreground" Value="{DynamicResource LinkNavigationButtonColour}"/>
+    </Style>
+
+
+    <SolidColorBrush x:Key="InGlassOuterBorderBrush" Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}" Opacity="0.66"/>
+
+    <LinearGradientBrush x:Key="InGlassBorderBrush" EndPoint="0,1" StartPoint="0,0">
+        <GradientStop Color="{DynamicResource {x:Static SystemColors.WindowFrameColorKey}}" Offset="0.5"/>
+        <GradientStop Color="{Extensions:Opacity 0.5, {x:Static SystemColors.WindowFrameColor}}" Offset="1"/>
+    </LinearGradientBrush>
+
+    <SolidColorBrush x:Key="InGlassLightBorderBrush" Color="White" Opacity="0.66"/>
+
+
+
+    <Style x:Key="GlassLightBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="1" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InGlassOuterBorderBrush}"/>
+    </Style>
+
+
+    <Style x:Key="GlassDarkBorder" TargetType="Border">
+        <Setter Property="CornerRadius" Value="1" />
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="SnapsToDevicePixels" Value="True"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource InGlassBorderBrush}"/>
+        <Setter Property="Background" Value="{DynamicResource InactiveTextBoxBackgroundBrush}"	/>
+    </Style>
+
+
+    <Style x:Key="GlassBorderStyle" TargetType="{x:Type UserControl}">
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type UserControl}">
+
+                    <Border x:Name="LightBorder" Style="{DynamicResource GlassLightBorder}">
+                        <Border x:Name="DarkBorder" Style="{DynamicResource GlassDarkBorder}">
+                            <ContentPresenter x:Name="ContentPanel" 
+                                SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+                                HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+                                VerticalAlignment="{TemplateBinding VerticalContentAlignment}" />
+                        </Border>
+
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="False">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="#f8f8f8"/>
+                        </Trigger>
+                        <!--<Trigger Property="IsKeyboardFocusWithin" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>-->
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+
+    <Style x:Key="InGlassButtonStyle" TargetType="{x:Type Button}" BasedOn="{x:Null}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource SimpleButtonFocusVisual}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Button}">
+                    <Border x:Name="Border"  
+                                BorderThickness="{TemplateBinding BorderThickness}"
+        					 BorderBrush ="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
+                                Padding="{TemplateBinding Padding}">
+
+                        <!-- Content Presenter is where the text content etc is placed by the control -->
+                        <!-- The bindings are useful so that the control can be parameterized without editing the template -->
+                        <ContentPresenter 
+        					Margin="{TemplateBinding Padding}" 
+                            RecognizesAccessKey="True" 
+                            VerticalAlignment="{TemplateBinding VerticalContentAlignment}" 
+        					HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}"/>
+                    </Border>
+
+                    <!--Each state sets a brush on the Border in the template -->
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Setter Property="BorderBrush" TargetName="Border" Value="{DynamicResource InGlassBorderBrush}"/>
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SelectionHoverBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SelectionHoverBrush}"/>
+
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="true">
+                            <Setter Property="Background" TargetName="Border" Value="{DynamicResource SelectionHoverBrush}"/>
+                            <Setter Property="BorderBrush" Value="{DynamicResource PressedBorderBrush}" TargetName="Border"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled" Value="true"/>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Background" Value="{DynamicResource DisabledBackgroundBrush}" TargetName="Border"/>
+                            <Setter Property="Foreground" Value="{DynamicResource DisabledForegroundBrush}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+
+    <Style x:Key="InGlassSearchBoxStyle" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+        <Style.Resources>
+            <Convertors:StringIsNullOrEmptyConverter x:Key="stringIsNullOrEmptyConverter"/>
+        </Style.Resources>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+
+                    <Border x:Name="LightBorder" Style="{DynamicResource GlassLightBorder}">
+                        <Border x:Name="DarkBorder" Style="{DynamicResource GlassDarkBorder}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <Grid>
+                                <TextBlock Name="Watermark" 
+                                           Margin="3,0" VerticalAlignment="Center"
+                                           Text="Search" FontStyle="Italic" Foreground="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                                <ScrollViewer x:Name="PART_ContentHost" VerticalAlignment="Center" SnapsToDevicePixels="True"/>
+                            </Grid>
+                        </Border>
+                    </Border>
+
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <!--<Setter TargetName="DarkBorder" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"/>-->
+                            <!--<Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>-->
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                            <Setter TargetName="DarkBorder" Property="BorderBrush" Value="{DynamicResource InGlassBorderBrush}" />
+                            <Setter TargetName="Watermark" Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent}, 
+                            Converter={StaticResource stringIsNullOrEmptyConverter}, Path=SearchText}"
+                                     Value="false">
+                            <Setter TargetName="Watermark" Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+    </Style>
+
+
+
+    <Style x:Key="InGlassTextBoxStyle" BasedOn="{x:Null}" TargetType="{x:Type TextBox}">
+        <Style.Resources>
+            <Convertors:StringIsNullOrEmptyConverter x:Key="stringIsNullOrEmptyConverter"/>
+        </Style.Resources>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="AllowDrop" Value="true"/>
+        <Setter Property="FocusVisualStyle" Value="{x:Null}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+
+                    <Border x:Name="LightBorder" Style="{DynamicResource GlassLightBorder}">
+                        <Border x:Name="DarkBorder" Style="{DynamicResource GlassDarkBorder}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                            <ScrollViewer x:Name="PART_ContentHost" 
+                                    VerticalAlignment="Center"
+                                    SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" />
+                        </Border>
+                    </Border>
+
+
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                            <!--<Setter TargetName="DarkBorder" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.InactiveBorderBrushKey}}"/>-->
+                            <!--<Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>-->
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                            <Setter TargetName="DarkBorder" Property="BorderBrush" Value="{DynamicResource InGlassBorderBrush}" />
+                        </Trigger>
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Setter Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+    </Style>
+
+
+    <Style x:Key="InGlassComboBoxStyle" TargetType="{x:Type ComboBox}">
+        <Setter Property="FocusVisualStyle" Value="{DynamicResource ComboBoxFocusVisual}"/>
+        <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.WindowTextBrushKey}}"/>
+        <Setter Property="Background" Value="{DynamicResource ButtonNormalBackground}"/>
+        <Setter Property="BorderBrush" Value="{DynamicResource ButtonNormalBorder}"/>
+        <Setter Property="BorderThickness" Value="1"/>
+        <Setter Property="ScrollViewer.HorizontalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="ScrollViewer.VerticalScrollBarVisibility" Value="Auto"/>
+        <Setter Property="Padding" Value="4,3"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ComboBox}">
+                    <Border x:Name="LightBorder" Style="{DynamicResource GlassLightBorder}">
+                        <Border x:Name="DarkBorder" CornerRadius="0"   BorderThickness="1"
+                                SnapsToDevicePixels="True"
+                                BorderBrush="{DynamicResource InGlassBorderBrush}">
+                            <Border  BorderBrush ="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <Grid x:Name="MainGrid" SnapsToDevicePixels="true">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}" Width="0"/>
+                                    </Grid.ColumnDefinitions>
+                                    <Popup x:Name="PART_Popup" Margin="1" AllowsTransparency="true" IsOpen="{Binding IsDropDownOpen, RelativeSource={RelativeSource TemplatedParent}}" Placement="Bottom" PopupAnimation="{DynamicResource {x:Static SystemParameters.ComboBoxPopupAnimationKey}}" Grid.ColumnSpan="2">
+                                        <Microsoft_Windows_Themes:SystemDropShadowChrome x:Name="Shdw" MaxHeight="{TemplateBinding MaxDropDownHeight}" MinWidth="{Binding ActualWidth, ElementName=MainGrid}" Color="Transparent">
+                                            <Border x:Name="DropDownBorder" Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" BorderBrush="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" BorderThickness="1">
+                                                <ScrollViewer CanContentScroll="true">
+                                                    <ItemsPresenter SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                                </ScrollViewer>
+                                            </Border>
+                                        </Microsoft_Windows_Themes:SystemDropShadowChrome>
+                                    </Popup>
+                                    <ToggleButton Style="{DynamicResource InGlassComboBoxReadonlyToggleButton}"  Grid.ColumnSpan="2" IsChecked="{Binding IsDropDownOpen, Mode=TwoWay, RelativeSource={RelativeSource TemplatedParent}}"/>
+                                    <!--Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}"-->
+                                    <ContentPresenter Margin="{TemplateBinding Padding}"                                                       
+					                    IsHitTestVisible="false" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" 
+					                    Content="{TemplateBinding SelectionBoxItem}" 
+					                    ContentStringFormat="{TemplateBinding SelectionBoxItemStringFormat}" 
+					                    ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}" 
+					                    ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
+                                        HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" 
+					                    VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                </Grid>
+                            </Border>
+                        </Border>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="HasDropShadow" SourceName="PART_Popup" Value="true">
+                            <Setter Property="Margin" TargetName="Shdw" Value="0,0,5,5"/>
+                            <Setter Property="Color" TargetName="Shdw" Value="#71000000"/>
+                        </Trigger>
+                        <Trigger Property="HasItems" Value="false">
+                            <Setter Property="Height" TargetName="DropDownBorder" Value="95"/>
+                        </Trigger>
+
+                        <Trigger Property="IsEnabled" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocusWithin" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                            <Setter TargetName="DarkBorder" Property="BorderBrush" Value="{DynamicResource InGlassBorderBrush}" />
+                        </Trigger>
+                        <!--<Trigger Property="IsKeyboardFocusWithin" Value="false">
+                            <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+                        </Trigger>-->
+                        <Trigger Property="IsMouseOver" Value="true">
+                            <Setter TargetName="DarkBorder" Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}" />
+                        </Trigger>
+
+                        <Trigger Property="IsGrouping" Value="true">
+                            <Setter Property="ScrollViewer.CanContentScroll" Value="false"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <!--<Style.Triggers>
+            <Trigger Property="IsEditable" Value="true">
+                <Setter Property="BorderBrush" Value="{StaticResource TextBoxBorder}"/>
+                <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowBrushKey}}"/>
+                <Setter Property="IsTabStop" Value="false"/>
+                <Setter Property="Padding" Value="3"/>
+                <Setter Property="Template" Value="{StaticResource ComboBoxEditableTemplate}"/>
+            </Trigger>
+        </Style.Triggers>-->
+    </Style>
+
+
+</ResourceDictionary>
