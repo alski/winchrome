@@ -33,7 +33,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Window">
                     <Border x:Name="WindowGlowBorder" Style="{StaticResource GlowBorder}" WinChrome:VS2012.GlowBorder="True">
-                        <Grid x:Name="ActualWindowRender" Background="{StaticResource WindowColorBrush}" >
+                        <Grid x:Name="ActualWindowRender" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
@@ -77,31 +77,24 @@
                                 </Grid>
                             </Grid>
 
-                            <Border Grid.Row="1" BorderThickness="6,0,6,6">
-                                <!--BorderThickness="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}, Path=(shell:WindowChrome.ResizeBorderThickness)}">-->
-                                <Border
+                            <Border Grid.Row="1" Margin="6,0,6,6"
                                                         BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" 
                                                         BorderThickness="1"
                                                         Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
-                                    <Grid>
-                                        <ScrollViewer VerticalScrollBarVisibility="Auto">
-                                            <ContentPresenter 
+                                <Grid >
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                        <ContentPresenter 
                                                         	    Content="{TemplateBinding ContentControl.Content}" 
                                                         	    ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" 
                                                         	    ContentStringFormat="{TemplateBinding ContentControl.ContentStringFormat}"
                                                         	    x:Name="PART_NavWinCP" ClipToBounds="True" />
-                                        </ScrollViewer>
-                                        <ContentPresenter 
+                                    </ScrollViewer>
+                                    <ContentPresenter 
                                                             Content="{Binding GlobalContent, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type WinChrome:SearchableNavigationWindow}}}"/>
-                                    </Grid>
-                                </Border>
+                                </Grid>
                             </Border>
                         </Grid>
                     </Border>
-                    <!--</Border>
-                            </Border>
-                        </Border>
-                    </Border>-->
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsFocused" Value="False"/>
                     </ControlTemplate.Triggers>

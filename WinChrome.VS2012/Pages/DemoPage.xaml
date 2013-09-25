@@ -5,32 +5,32 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:ViewModel="clr-namespace:WinChrome.VS2012Demo.ViewModel" mc:Ignorable="d" 
     d:DesignWidth="300" d:DataContext="{d:DesignInstance Type={x:Type ViewModel:DemoPageViewModel}}"
-    Title="DemoPage"
-    Background="AliceBlue">
+      Foreground="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"
+    Title="DemoPage">
     <Page.Resources>
         <Style x:Key="colourButtonStyle" TargetType="Button">
             <Setter Property="Width" Value="32"/>
             <Setter Property="Height" Value="32"/>
             <Setter Property="Command" Value="{Binding SetColorCommand}" />
             <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=Background.Color}"/>
-            <Setter Property="Margin" Value="3"/>
+            <Setter Property="Margin" Value="3"/>            
         </Style>
     </Page.Resources>
     <StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
             <TextBlock VerticalAlignment="Center" Margin="6,0">Pick a colour</TextBlock>
             <Button Background="LimeGreen" Style="{StaticResource colourButtonStyle}"/>
             <Button Background="Purple" Style="{StaticResource colourButtonStyle}"/>
             <Button Background="#CA5100" Style="{StaticResource colourButtonStyle}" />
             <Button Background="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Style="{StaticResource colourButtonStyle}"/>
         </StackPanel>
-        <StackPanel>
-            <Border Height="300" Background="White" BorderBrush="Black" BorderThickness="0.75" Margin="12" Padding="12">
+        <StackPanel Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+            <Border Height="300" BorderBrush="Black" BorderThickness="0.75" Margin="12" Padding="12" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                 <TextBlock FontSize="16">Pretend this is lots of text</TextBlock>
             </Border>
         </StackPanel>
         <Grid>
-        <Button HorizontalAlignment="Right" Command="{Binding GoNextCommand}" Content="Next" Margin="12"/>
+            <Button HorizontalAlignment="Right" Command="{Binding GoNextCommand}" Content="Next" Margin="12"/>
         </Grid>
-    </StackPanel>    
+    </StackPanel>
 </Page>

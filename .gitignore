@@ -2,3 +2,7 @@
 bin
 obj
 .hgignore
+/WinChrome/obj/Debug
+/WinChrome/obj/Debug
+/WinChrome/obj/Debug
+/WinChrome.VS2012/obj/Debug
