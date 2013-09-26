@@ -13,7 +13,7 @@
     <Color x:Key="{x:Static SystemColors.ControlDarkColorKey}" >#252526</Color>
     <Color x:Key="{x:Static SystemColors.ControlDarkDarkColorKey}" >#0F0F0F</Color>
     <Color x:Key="{x:Static SystemColors.ControlTextColorKey}" >White</Color>
-    <Color x:Key="{x:Static SystemColors.ScrollBarColorKey}" >#F5F5F5</Color>
+    <Color x:Key="{x:Static SystemColors.ScrollBarColorKey}" >#252526</Color>
 
     <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
     <SolidColorBrush x:Key="{x:Static SystemColors.WindowFrameBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowFrameColorKey}}" />
