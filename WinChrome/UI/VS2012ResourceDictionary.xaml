@@ -12,21 +12,20 @@
         <ResourceDictionary Source="/WinChrome;component/UI/GlassResourceDictionary.xaml" />
         <ResourceDictionary Source="/WinChrome;component/UI/HistoryNavigatorStyles/VS2012ResourceDictionary.xaml" />
     </ResourceDictionary.MergedDictionaries>
-    
-    <Color x:Key="WindowColor">#F0F0F0</Color>
-    <SolidColorBrush x:Key="WindowColorBrush" Color="{DynamicResource WindowColor}"/>
 
-    <!--<Style x:Key="GlowLayer" TargetType="{x:Type Border}">
-        <Setter Property="Padding" Value="1"/>
-        <Setter Property="Background" >
-            <Setter.Value>
-                <SolidColorBrush 
-                    Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}"
-                    Opacity="0.06"/>
-            </Setter.Value>
-        </Setter>
-        <Setter Property="CornerRadius" Value="8"/>
-    </Style>-->
+    <Color x:Key="{x:Static SystemColors.WindowColorKey}">#FFFFFF</Color>
+    <Color x:Key="{x:Static SystemColors.WindowFrameColorKey}">#EEEEF2</Color>
+    <Color x:Key="{x:Static SystemColors.ControlLightLightColorKey}">#FFFFFF</Color>
+    <Color x:Key="{x:Static SystemColors.ControlColorKey}">#CCCEDB</Color>
+    <Color x:Key="{x:Static SystemColors.ScrollBarColorKey}">#F5F5F5</Color>
+    
+    <SolidColorBrush x:Key="{x:Static SystemColors.ControlLightLightBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
+    <SolidColorBrush x:Key="{x:Static SystemColors.WindowFrameBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowFrameColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}"/>
+
+    <SolidColorBrush x:Key="{x:Static SystemColors.ScrollBarBrushKey}" Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}" />
+    <SolidColorBrush x:Key="ScrollBarForegroundBrushKey" Color="{DynamicResource {x:Static SystemColors.ControlDarkColorKey}}" />
 
     <Style x:Key="GlowBorder" TargetType="{x:Type Border}">
         <Setter Property="BorderThickness" Value="1"/>
@@ -203,5 +202,279 @@
             <Visibility>Visible</Visibility>
         </Convertors:WindowStateCanMaximizeConverter.FalseValue>
     </Convertors:WindowStateCanMaximizeConverter>
+    
+    
+
+    <Style x:Key="ScrollBarLineButtonStyle"
+           TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle"
+                Value="true"/>
+        <Setter Property="Background"
+                Value="Transparent"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource ScrollBarForegroundBrushKey}"/>
+        <Setter Property="MinWidth"
+                Value="0"/>
+        <Setter Property="MinHeight"
+                Value="0"/>
+        <Setter Property="IsTabStop"
+                Value="false"/>
+        <Setter Property="Focusable"
+                Value="false"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Border x:Name="ClassicBorder"
+                                                  Width="{TemplateBinding Width}"
+                                                  Height="{TemplateBinding Height}"
+                                                  Background="{TemplateBinding Background}"
+                                                  BorderBrush="{TemplateBinding BorderBrush}"
+                                                  BorderThickness="{TemplateBinding BorderThickness}">
+                        <Path x:Name="Path"
+                            HorizontalAlignment="Center"
+                              VerticalAlignment="Center"
+                              Fill="{TemplateBinding Foreground}"
+                              Data="{Binding Path=Content,RelativeSource={RelativeSource TemplatedParent}}"/>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="true">
+                            <Setter Property="Fill"
+                                    Value="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}"
+                                    TargetName="Path"/>
+                        </Trigger>
+                        <Trigger Property="IsEnabled"
+                                 Value="false">
+                            <Setter Property="Foreground"
+                                    Value="{DynamicResource ScrollBarForegroundBrushKey}"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <SolidColorBrush x:Key="ScrollBarPageButtonBrush"
+                     Color="Transparent"
+                     Opacity="0.5"/>
+
+    <Style x:Key="{x:Type ScrollViewer}" 
+           TargetType="{x:Type ScrollViewer}">              
+        <Style.Triggers>
+            <Trigger Property="IsEnabled" 
+                     Value="false">
+                <Setter Property="Foreground" 
+                        Value="{DynamicResource {x:Static SystemColors.GrayTextBrushKey}}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+    <Style x:Key="HorizontalScrollBarPageButtonStyle"
+           TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle"
+                Value="true"/>
+        <Setter Property="IsTabStop"
+                Value="false"/>
+        <Setter Property="Focusable"
+                Value="false"/>
+        <Setter Property="MinHeight"
+                Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+        <Setter Property="MinWidth"
+                Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle x:Name="PageButtonBackground"
+                               Fill="Transparent"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed"
+                                 Value="true">
+                            <Setter Property="Fill"
+                                    Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"
+                                    TargetName="PageButtonBackground"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="VerticalScrollBarPageButtonStyle"
+           TargetType="{x:Type RepeatButton}">
+        <Setter Property="OverridesDefaultStyle"
+                Value="true"/>
+        <Setter Property="IsTabStop"
+                Value="false"/>
+        <Setter Property="Focusable"
+                Value="false"/>
+        <Setter Property="MinWidth"
+                Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        <Setter Property="MinHeight"
+                Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RepeatButton}">
+                    <Rectangle x:Name="PageButtonBackground"
+                               Fill="Transparent"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsPressed"
+                                 Value="true">
+                            <Setter Property="Fill"
+                                    Value="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}"
+                                    TargetName="PageButtonBackground"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style x:Key="ScrollBarThumb"
+           TargetType="{x:Type Thumb}">
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type Thumb}">
+                    <Border  x:Name="ScrollBarThumbBackground"
+                                                  Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"
+                                                  BorderThickness="3"
+                                                  BorderBrush="Transparent"/>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver"
+                                 Value="true">
+                            <Setter Property="Background"
+                                    Value="{DynamicResource ScrollBarForegroundBrushKey}"
+                                    TargetName="ScrollBarThumbBackground"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="{x:Type ScrollBar}"
+           TargetType="{x:Type ScrollBar}">
+        <Setter Property="Stylus.IsPressAndHoldEnabled"
+                Value="false"/>
+        <Setter Property="Stylus.IsFlicksEnabled"
+                Value="false"/>
+        <Setter Property="Background"
+                Value="{DynamicResource {x:Static SystemColors.ScrollBarBrushKey}}"/>
+        <Setter Property="Foreground"
+                Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
+        <Setter Property="BorderThickness"
+                Value="0"/>
+        <Setter Property="Width"
+                Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        <Setter Property="MinWidth"
+                Value="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type ScrollBar}">
+                    <Grid Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                            <RowDefinition Height="0.00001*"/>
+                            <RowDefinition MaxHeight="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"/>
+                        </Grid.RowDefinitions>
+                        <Viewbox Stretch="Fill">
+                            <RepeatButton Style="{StaticResource ScrollBarLineButtonStyle}"
+                                          Height="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                                          MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+                                          Command="{x:Static ScrollBar.LineUpCommand}"
+                                          Content="M 0 5 L 9 5 L 4.5 0 Z"/>
+                        </Viewbox>
+                        <Rectangle Grid.Row="1"
+                                   Fill="{StaticResource ScrollBarPageButtonBrush}"/>
+
+                        <Track Grid.Row="1"
+                               Name="PART_Track"
+                               IsDirectionReversed="true">
+                            <Track.DecreaseRepeatButton>
+                                <RepeatButton Style="{StaticResource VerticalScrollBarPageButtonStyle}"
+                                              Command="{x:Static ScrollBar.PageUpCommand}"/>
+                            </Track.DecreaseRepeatButton>
+                            <Track.IncreaseRepeatButton>
+                                <RepeatButton Style="{StaticResource VerticalScrollBarPageButtonStyle}"
+                                              Command="{x:Static ScrollBar.PageDownCommand}"/>
+                            </Track.IncreaseRepeatButton>
+                            <Track.Thumb>
+                                <Thumb Style="{StaticResource ScrollBarThumb}"/>
+                            </Track.Thumb>
+                        </Track>
+
+                        <Viewbox Stretch="Fill"
+                                 Grid.Row="2">
+                            <RepeatButton Style="{StaticResource ScrollBarLineButtonStyle}"
+                                          Height="{DynamicResource {x:Static SystemParameters.VerticalScrollBarButtonHeightKey}}"
+                                          MinWidth="{DynamicResource {x:Static SystemParameters.VerticalScrollBarWidthKey}}"
+                                          Command="{x:Static ScrollBar.LineDownCommand}"
+                                          Content="M 0 0 L 4.5 5 L 9 0 Z"/>
+                        </Viewbox>
+                    </Grid>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Orientation"
+                     Value="Horizontal">
+                <Setter Property="Width"
+                        Value="Auto"/>
+                <Setter Property="MinWidth"
+                        Value="0"/>
+                <Setter Property="Height"
+                        Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+                <Setter Property="MinHeight"
+                        Value="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type ScrollBar}">
+                            <Grid Background="{TemplateBinding Background}">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                                    <ColumnDefinition Width="0.00001*"/>
+                                    <ColumnDefinition MaxWidth="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"/>
+                                </Grid.ColumnDefinitions>
+                                <Viewbox Stretch="Fill">
+                                    <RepeatButton Style="{StaticResource ScrollBarLineButtonStyle}"
+                                                  Width="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                                                  MinHeight="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"
+                                                  Command="{x:Static ScrollBar.LineLeftCommand}"
+                                                  Content="M 0 4 L 4 8 L 4 0 Z"/>
+                                </Viewbox>
+                                <Rectangle Grid.Column="1"
+                                           Fill="{StaticResource ScrollBarPageButtonBrush}"/>
+                                <Track Grid.Column="1"
+                                       Name="PART_Track">
+                                    <Track.DecreaseRepeatButton>
+                                        <RepeatButton Style="{StaticResource HorizontalScrollBarPageButtonStyle}"
+                                                      Command="{x:Static ScrollBar.PageLeftCommand}"/>
+                                    </Track.DecreaseRepeatButton>
+                                    <Track.IncreaseRepeatButton>
+                                        <RepeatButton Style="{StaticResource HorizontalScrollBarPageButtonStyle}"
+                                                      Command="{x:Static ScrollBar.PageRightCommand}"/>
+                                    </Track.IncreaseRepeatButton>
+                                    <Track.Thumb>
+                                        <Thumb Style="{StaticResource ScrollBarThumb}"/>
+                                    </Track.Thumb>
+                                </Track>
+
+
+                                <Viewbox Stretch="Fill"
+                                         Grid.Column="2">
+                                    <RepeatButton Style="{StaticResource ScrollBarLineButtonStyle}"
+                                                  Width="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarButtonWidthKey}}"
+                                                  MinHeight="{DynamicResource {x:Static SystemParameters.HorizontalScrollBarHeightKey}}"
+                                                  Command="{x:Static ScrollBar.LineRightCommand}"
+                                                  Content="M 0 0 L 0 8 L 4 4 Z"/>
+                                </Viewbox>
+                            </Grid>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+
 
 </ResourceDictionary>

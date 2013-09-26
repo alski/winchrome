@@ -5,8 +5,8 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary Source="/WinChrome;component/UI/DarkTheme.xaml" />
-                <ResourceDictionary Source="/WinChrome;component/UI/VS2012Window.xaml" />                
+                <ResourceDictionary Source="/WinChrome;component/UI/VS2012Window.xaml" />
+                <!--<ResourceDictionary Source="/WinChrome;component/UI/DarkTheme.xaml" />-->
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Application.Resources>

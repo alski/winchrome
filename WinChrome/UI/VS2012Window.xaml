@@ -33,7 +33,7 @@
             <Setter.Value>
                 <ControlTemplate TargetType="Window">
                     <Border x:Name="WindowGlowBorder" Style="{StaticResource GlowBorder}" WinChrome:VS2012.GlowBorder="True">
-                        <Grid x:Name="ActualWindowRender" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" >
+                        <Grid x:Name="ActualWindowRender" Background="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}" >
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                                 <RowDefinition/>
@@ -78,11 +78,11 @@
                             </Grid>
 
                             <Border Grid.Row="1" Margin="6,0,6,6"
-                                                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" 
+                                                        BorderBrush="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" 
                                                         BorderThickness="1"
                                                         Background="{DynamicResource {x:Static SystemColors.WindowBrushKey}}">
                                 <Grid >
-                                    <ScrollViewer VerticalScrollBarVisibility="Auto">
+                                    <ScrollViewer VerticalScrollBarVisibility="Auto" >
                                         <ContentPresenter 
                                                         	    Content="{TemplateBinding ContentControl.Content}" 
                                                         	    ContentTemplate="{TemplateBinding ContentControl.ContentTemplate}" 

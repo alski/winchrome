@@ -15,16 +15,29 @@
             <Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=Background.Color}"/>
             <Setter Property="Margin" Value="3"/>            
         </Style>
+        <Style x:Key="theme" TargetType="Border">
+            <Setter Property="Width" Value="32"/>
+            <Setter Property="Height" Value="32"/>
+            <Setter Property="Margin" Value="3"/>
+        </Style>
     </Page.Resources>
     <StackPanel>
-        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
             <TextBlock VerticalAlignment="Center" Margin="6,0">Pick a colour</TextBlock>
             <Button Background="LimeGreen" Style="{StaticResource colourButtonStyle}"/>
             <Button Background="Purple" Style="{StaticResource colourButtonStyle}"/>
             <Button Background="#CA5100" Style="{StaticResource colourButtonStyle}" />
             <Button Background="{DynamicResource {x:Static SystemColors.HotTrackBrushKey}}" Style="{StaticResource colourButtonStyle}"/>
         </StackPanel>
-        <StackPanel Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}">
+        <StackPanel Orientation="Horizontal" VerticalAlignment="Top" >
+            <TextBlock VerticalAlignment="Center" Margin="6,0">Theme colors</TextBlock>
+            <Border Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}" Style="{StaticResource theme}"/>
+            <Border Background="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}" Style="{StaticResource theme}"/>
+            <Border Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Style="{StaticResource theme}"/>
+            <Border Background="{DynamicResource {x:Static SystemColors.ControlDarkBrushKey}}" Style="{StaticResource theme}"/>
+            <Border Background="{DynamicResource {x:Static SystemColors.ControlDarkDarkBrushKey}}" Style="{StaticResource theme}"/>
+        </StackPanel>
+        <StackPanel>
             <Border Height="300" BorderBrush="Black" BorderThickness="0.75" Margin="12" Padding="12" Background="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}">
                 <TextBlock FontSize="16">Pretend this is lots of text</TextBlock>
             </Border>

@@ -4,18 +4,19 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     mc:Ignorable="d">
 
-
-    <Color x:Key="{x:Static SystemColors.WindowColorKey}" R="30" G="30" B="30" A="255"/>
-    <Color x:Key="{x:Static SystemColors.ControlLightLightColorKey}" R="104" G="104" B="104" A="255"/>
-    <Color x:Key="{x:Static SystemColors.ControlLightColorKey}" R="62" G="62" B="66" A="255"/>
-    <Color x:Key="{x:Static SystemColors.ControlColorKey}" R="45" G="45" B="48" A="255"/>
-    <Color x:Key="{x:Static SystemColors.ControlDarkColorKey}" R="37" G="37" B="37" A="255"/>
-    <Color x:Key="{x:Static SystemColors.ControlDarkDarkColorKey}" R="0" G="0" B="0"  A="255"/>
-    <Color x:Key="{x:Static SystemColors.ControlTextColorKey}" R="255" G="255" B="255" A="255"/>
-    <!--<Color x:Key="{x:Static SystemColors.HotTrackColorKey}" R="255" G="140" B="0" A="255"/>-->
-    <Color x:Key="{x:Static SystemColors.ScrollBarColorKey}" R="45" G="45" B="48" A="255"/>
+    
+    <Color x:Key="{x:Static SystemColors.WindowColorKey}">#1E1E1E</Color>
+    <Color x:Key="{x:Static SystemColors.WindowFrameColorKey}">#2D2D30</Color>
+    <Color x:Key="{x:Static SystemColors.ControlLightLightColorKey}" >#9E9E9E</Color>
+    <Color x:Key="{x:Static SystemColors.ControlLightColorKey}" >#686868</Color>
+    <Color x:Key="{x:Static SystemColors.ControlColorKey}" >#3E3E42</Color>
+    <Color x:Key="{x:Static SystemColors.ControlDarkColorKey}" >#252526</Color>
+    <Color x:Key="{x:Static SystemColors.ControlDarkDarkColorKey}" >#0F0F0F</Color>
+    <Color x:Key="{x:Static SystemColors.ControlTextColorKey}" >White</Color>
+    <Color x:Key="{x:Static SystemColors.ScrollBarColorKey}" >#F5F5F5</Color>
 
     <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}" />
+    <SolidColorBrush x:Key="{x:Static SystemColors.WindowFrameBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowFrameColorKey}}" />
     <SolidColorBrush x:Key="{x:Static SystemColors.ControlLightLightBrushKey}" Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}" />
     <SolidColorBrush x:Key="{x:Static SystemColors.ControlLightBrushKey}" Color="{DynamicResource {x:Static SystemColors.ControlLightColorKey}}" />
     <SolidColorBrush x:Key="{x:Static SystemColors.ControlBrushKey}" Color="{DynamicResource {x:Static SystemColors.ControlColorKey}}" />
@@ -25,5 +26,6 @@
     <SolidColorBrush x:Key="{x:Static SystemColors.ControlTextBrushKey}" Color="{DynamicResource {x:Static SystemColors.ControlTextColorKey}}" />
     <SolidColorBrush x:Key="{x:Static SystemColors.HotTrackBrushKey}" Color="{DynamicResource {x:Static SystemColors.HotTrackColorKey}}" />
     <SolidColorBrush x:Key="{x:Static SystemColors.ScrollBarBrushKey}" Color="{DynamicResource {x:Static SystemColors.ScrollBarColorKey}}" />
+    <SolidColorBrush x:Key="ScrollBarForegroundBrushKey" Color="{DynamicResource {x:Static SystemColors.ControlLightLightColorKey}}" />
 
 </ResourceDictionary>
