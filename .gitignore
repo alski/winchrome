@@ -9,3 +9,4 @@ obj
 /WinChrome/obj/Debug
 /WinChrome/obj/Debug
 /WinChrome.VS2012/obj/Debug
+*.suo
