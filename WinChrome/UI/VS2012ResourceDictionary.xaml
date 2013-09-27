@@ -18,7 +18,7 @@
     <Color x:Key="{x:Static SystemColors.ControlLightLightColorKey}">#FFFFFF</Color>
     <Color x:Key="{x:Static SystemColors.ControlColorKey}">#CCCEDB</Color>
     <Color x:Key="{x:Static SystemColors.ScrollBarColorKey}">#F5F5F5</Color>
-    
+
     <SolidColorBrush x:Key="{x:Static SystemColors.ControlLightLightBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
     <SolidColorBrush x:Key="{x:Static SystemColors.WindowBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowColorKey}}"/>
     <SolidColorBrush x:Key="{x:Static SystemColors.WindowFrameBrushKey}" Color="{DynamicResource {x:Static SystemColors.WindowFrameColorKey}}" />
@@ -37,8 +37,8 @@
         </Setter>
     </Style>
 
-    
-    
+
+
     <Style x:Key="CloseButtonStyle" TargetType="{x:Type Button}" >
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
@@ -46,18 +46,30 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="bd" Background="Transparent" Padding="11,8" SnapsToDevicePixels="True">
+                    <Border x:Name="bd" Background="Transparent" Padding="12,10.5" SnapsToDevicePixels="True">
                         <Border.ToolTip>
                             <ContentPresenter />
                         </Border.ToolTip>
                         <Grid>
-                            <Path x:Name="path" Stretch="Uniform" Data="M0,0 L1,1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1.25"/>
-                            <Path x:Name="path1" Stretch="Uniform" Data="M1,0 L0,1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1.25"/>
+                            <Path x:Name="path" Stretch="Uniform" Data="M0,0 L1,1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1.5"/>
+                            <Path x:Name="path1" Stretch="Uniform" Data="M1,0 L0,1" Stroke="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" StrokeThickness="1.5"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsMouseOver" Value="True" SourceName="bd">
-                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>                         
+                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                            <Setter Property="Stroke" TargetName="path">
+                                <Setter.Value>
+                                    <SolidColorBrush 
+                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter Property="Stroke" TargetName="path1">
+                                <Setter.Value>
+                                    <SolidColorBrush 
+                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
+                                </Setter.Value>
+                            </Setter>
                         </Trigger>
                         <Trigger Property="IsPressed" Value="True">
                             <Setter Property="Background" TargetName="bd">
@@ -66,6 +78,8 @@
                                         Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
                                 </Setter.Value>
                             </Setter>
+                            <Setter TargetName="path" Property="Stroke" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            <Setter TargetName="path1" Property="Stroke" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -80,25 +94,32 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="bd" Background="Transparent" Padding="11,9.5" SnapsToDevicePixels="True">
+                    <Border x:Name="bd" Background="Transparent" Padding="12,10.5" SnapsToDevicePixels="True">
                         <Border.ToolTip>
                             <ContentPresenter />
                         </Border.ToolTip>
-                        <Grid x:Name="grid" Width="{Binding ElementName=grid, Path=ActualHeight}" >
-                            <Border x:Name="glyph" BorderThickness="1,2,1,1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
+                        <Grid x:Name="grid" >
+                            <Border x:Name="glyph" BorderThickness="1,3,1,1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" />
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="bd" >
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="bd">
+                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                            <Setter TargetName="glyph" Property="BorderBrush" >
                                 <Setter.Value>
-                                    <SolidColorBrush
+                                    <SolidColorBrush 
                                         Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True" SourceName="bd">
-                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="bd">
+                                <Setter.Value>
+                                    <SolidColorBrush 
+                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="glyph" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -110,43 +131,46 @@
         <Setter Property="Foreground" Value="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}"/>
         <Setter Property="HorizontalContentAlignment" Value="Center"/>
         <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Background" Value="{DynamicResource {x:Static SystemColors.WindowFrameBrushKey}}"/>
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="bd" Background="{DynamicResource {x:Static SystemColors.ControlBrushKey}}" Padding="11,9.5" SnapsToDevicePixels="True">
+                    <Border x:Name="bd" Background="{TemplateBinding Background}" Padding="12,10.5" SnapsToDevicePixels="True">
                         <Border.ToolTip>
                             <ContentPresenter />
                         </Border.ToolTip>
-                        <Grid x:Name="grid" Width="{Binding ElementName=grid, Path=ActualHeight}" >
-                            <Border x:Name="glyph1" Margin="2,-2,-2,2" BorderThickness="1,3,1,1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
+                        <Grid x:Name="grid" >
+                            <Border x:Name="glyph1" Margin="2,-1,0,3" BorderThickness="1,2,1,1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
 							 	Background="{Binding ElementName=bd, Path=Background}"/>
-                            <Border x:Name="glyph2" Margin="-2,2,2,-2" BorderThickness="1,3,1,1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
+                            <Border x:Name="glyph2" Margin="-1,2,3,0" BorderThickness="1,2,1,1" BorderBrush="{DynamicResource {x:Static SystemColors.ControlTextBrushKey}}" 
 								Background="{Binding ElementName=bd, Path=Background}"/>
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="glyph1" >
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="bd">
+                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                            <Setter TargetName="glyph1" Property="BorderBrush" >
                                 <Setter.Value>
                                     <SolidColorBrush 
                                         Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
                                 </Setter.Value>
-							</Setter>
-                            <Setter Property="Background" TargetName="glyph2">
-								<Setter.Value>
-                                    <SolidColorBrush 
-                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
-                                </Setter.Value>	
-							</Setter>
-                            <Setter Property="Background" TargetName="bd">
+                            </Setter>
+                            <Setter TargetName="glyph2" Property="BorderBrush" >
                                 <Setter.Value>
                                     <SolidColorBrush 
                                         Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True" SourceName="bd">
-                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="bd">
+                                <Setter.Value>
+                                    <SolidColorBrush 
+                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="glyph1" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
+                            <Setter TargetName="glyph2" Property="BorderBrush" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -161,7 +185,7 @@
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type Button}">
-                    <Border x:Name="bd" Background="Transparent" Padding="11,9.5" SnapsToDevicePixels="True">
+                    <Border x:Name="bd" Background="Transparent" Padding="12,10.5" SnapsToDevicePixels="True">
                         <Border.ToolTip>
                             <ContentPresenter />
                         </Border.ToolTip>
@@ -171,16 +195,23 @@
                         </Grid>
                     </Border>
                     <ControlTemplate.Triggers>
-                        <Trigger Property="IsPressed" Value="True">
-                            <Setter Property="Background" TargetName="bd" >
+                        <Trigger Property="IsMouseOver" Value="True" SourceName="bd">
+                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightLightBrushKey}}"/>
+                            <Setter TargetName="glyph" Property="Background" >
                                 <Setter.Value>
                                     <SolidColorBrush 
-                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}"/>                    
+                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
                                 </Setter.Value>
                             </Setter>
                         </Trigger>
-                        <Trigger Property="IsMouseOver" Value="True" SourceName="bd">
-                            <Setter Property="Background" TargetName="bd" Value="{DynamicResource {x:Static SystemColors.ControlLightBrushKey}}"/>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" TargetName="bd">
+                                <Setter.Value>
+                                    <SolidColorBrush 
+                                        Color="{Binding RelativeSource={RelativeSource TemplatedParent}, Path=(WinChrome:VS2012.GlowColor)}" />
+                                </Setter.Value>
+                            </Setter>
+                            <Setter TargetName="glyph" Property="Background" Value="{DynamicResource {x:Static SystemColors.HighlightTextBrushKey}}"/>
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -202,8 +233,8 @@
             <Visibility>Visible</Visibility>
         </Convertors:WindowStateCanMaximizeConverter.FalseValue>
     </Convertors:WindowStateCanMaximizeConverter>
-    
-    
+
+
 
     <Style x:Key="ScrollBarLineButtonStyle"
            TargetType="{x:Type RepeatButton}">
@@ -259,7 +290,7 @@
                      Opacity="0.5"/>
 
     <Style x:Key="{x:Type ScrollViewer}" 
-           TargetType="{x:Type ScrollViewer}">              
+           TargetType="{x:Type ScrollViewer}">
         <Style.Triggers>
             <Trigger Property="IsEnabled" 
                      Value="false">
@@ -298,7 +329,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="VerticalScrollBarPageButtonStyle"
            TargetType="{x:Type RepeatButton}">
         <Setter Property="OverridesDefaultStyle"
@@ -328,7 +359,7 @@
             </Setter.Value>
         </Setter>
     </Style>
-    
+
     <Style x:Key="ScrollBarThumb"
            TargetType="{x:Type Thumb}">
         <Setter Property="Template">
@@ -474,7 +505,7 @@
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
 
 
 </ResourceDictionary>
