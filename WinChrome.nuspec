@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+    <metadata>
+        <id>WinChrome</id>
+        <version>0.0.1</version>
+        <title>WinChrome</title>
+        <authors>AlSki</authors>
+        <owners>AlSki</owners>
+        <licenseUrl>https://winchrome.codeplex.com/license</licenseUrl>
+        <projectUrl>http://winchrome.codeplex.com</projectUrl>
+        <requireLicenseAcceptance>true</requireLicenseAcceptance>
+        <description>Currently supports
+
+Vista/Win7 control panel style window with glass
+
+VS2012 like
+(light and dark) 
+
+Modern (office hub page)</description>
+        <summary>Provides different types of window chrome for  NavigationWindows or optionally with additional navigation panel and search functionality</summary>
+        <releaseNotes>Pre-release version</releaseNotes>
+        <copyright>Copyright 2013 Alan Gardner</copyright>
+        <tags>MVVM,WPF</tags>
+    </metadata>
+    <files>
+        <file src="WinChrome\bin\Debug\Microsoft.Windows.Shell.dll" target="lib\net40-client\Microsoft.Windows.Shell.dll" />
+        <file src="WinChrome\bin\Debug\Microsoft.Windows.Shell.pdb" target="lib\net40-client\Microsoft.Windows.Shell.pdb" />
+        <file src="WinChrome\bin\Debug\WinChrome.dll" target="lib\net40-client\WinChrome.dll" />
+        <file src="WinChrome\bin\Debug\WinChrome.pdb" target="lib\net40-client\WinChrome.pdb" />
+    </files>
+</package>

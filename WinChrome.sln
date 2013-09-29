@@ -10,6 +10,9 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Microsoft.Windows.Shell", "Microsoft.Windows.Shell\Microsoft.Windows.Shell.csproj", "{55D5297C-F1DF-4B76-A3C1-D82CC294EEBB}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NuSpec", "NuSpec", "{865D0EA7-33CB-4135-9974-14D046CE4263}"
+	ProjectSection(SolutionItems) = preProject
+		WinChrome.nuspec = WinChrome.nuspec
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinChrome.VS2012Demo", "WinChrome.VS2012\WinChrome.VS2012Demo.csproj", "{DB585C88-B5A2-457E-86DB-B5D9A6398EE1}"
 EndProject
