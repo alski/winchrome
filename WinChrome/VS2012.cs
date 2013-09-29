@@ -19,7 +19,7 @@ namespace WinChrome
                  "GlowColor",
                  typeof(Color),
                  typeof(VS2012),
-                 new FrameworkPropertyMetadata(Colors.DarkOrange, FrameworkPropertyMetadataOptions.Inherits));
+                 new FrameworkPropertyMetadata(Colors.DarkOrange, FrameworkPropertyMetadataOptions.Inherits, new PropertyChangedCallback(GlowColorChanged)));
 
         public static Color GetGlowColor(UIElement uiElement)
         {
@@ -52,6 +52,47 @@ namespace WinChrome
         private static void ChangeGlowBorder(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             AddGlow(d as Border);
+            AddGlowEffect(d as Border);
+        }
+
+        private static void GlowColorChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
+        {
+            var border = FindBorder(d as UIElement);
+            if (border == null)
+                return;
+
+            AddGlowEffect(border);
+        }
+
+        private static void AddGlowEffect(Border border)
+        {
+            var glow = new DropShadowEffect { ShadowDepth = 0.0d, BlurRadius = GLOW_BORDER_MARGIN, Color = (Color)border.GetValue(VS2012.GlowColorProperty) };
+            border.Effect = glow;
+        }
+
+        private static Border FindBorder(UIElement element)
+        {
+            if (element is Border)
+            {
+                var border = (Border)element;
+                if ((bool)border.GetValue(GlowBorderProperty))
+                    return border;
+            }
+            var contentControl = element as ContentControl;
+            if (contentControl != null && contentControl.Content is UIElement)
+            {
+                return FindBorder(contentControl.Content as UIElement);
+            }
+
+            var panel = element as Panel;
+            if (panel != null)
+            {
+                foreach (var child in panel.Children)
+                {
+                    return FindBorder((UIElement)child);
+                }
+            }
+            return null;
         }
 
         private static void AddGlow(Border border)
@@ -59,8 +100,6 @@ namespace WinChrome
             if (border == null)
                 return;
 
-            var glow = new DropShadowEffect { ShadowDepth = 0.0d, BlurRadius = GLOW_BORDER_MARGIN, Color = (Color)border.GetValue(VS2012.GlowColorProperty) };
-            border.Effect = glow;
             border.SizeChanged += HandleGlowBorder;
         }
 
